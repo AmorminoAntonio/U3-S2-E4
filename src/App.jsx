@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <MyNav
-        navstyle="text-light mx-2 my-2 rounded-pill fw-lighter"
         link1="Home"
         link2="About"
         link3="Browse"

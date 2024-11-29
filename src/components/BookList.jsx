@@ -1,7 +1,6 @@
 import { Container, Row, Col, FormControl } from "react-bootstrap";
 import SingleBook from "./SingleBook";
 import { Component } from "react";
-import AddComment from "./AddComment";
 
 class BookList extends Component {
   state = {
@@ -11,9 +10,9 @@ class BookList extends Component {
   render() {
     console.log("RENDER");
     return (
-      <Container>
-        <Row className="justify-content-center mb-3">
-          <Col xs={4}>
+      <Container fluid>
+        <Row className="justify-content-center">
+          <Col>
             <FormControl
               type="text"
               placeholder="Ricerca il tuo libro qui..."
@@ -22,7 +21,7 @@ class BookList extends Component {
             />
           </Col>
         </Row>
-        <Row xs={1} sm={2} md={4} lg={4} className="mt-5 gy-5">
+        <Row md={4} className="mt-5 gy-5">
           {this.props.books
             .filter((book) =>
               book.title
@@ -30,10 +29,7 @@ class BookList extends Component {
                 .includes(this.state.filterQuery.toLowerCase())
             )
             .map((book) => (
-              <Col key={book.asin}>
-                <SingleBook book={book} />
-                <AddComment book={book} />
-              </Col>
+              <SingleBook book={book} key={book.asin} />
             ))}
         </Row>
       </Container>
